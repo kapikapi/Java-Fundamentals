@@ -10,8 +10,8 @@ import java.util.Map;
  * Created by Elizaveta Kapitonova on 04.01.16.
  */
 public class Binary {
-    private static final String INPUT_FILE = "src/main/resources/MaxArray.txt";
-    private static final String OUTPUT_FILE = "src/main/KeyWords.txt";
+    private String inputFileName;
+    private String outputFileName;
 
     private static final String KEYWORDS[] = { "abstract", "assert", "boolean",
             "break", "byte", "case", "catch", "char", "class", "const",
@@ -23,9 +23,14 @@ public class Binary {
             "synchronized", "this", "throw", "throws", "transient", "true",
             "try", "void", "volatile", "while" };
 
+    public Binary(String inputFileName, String outputFileName) {
+        this.inputFileName = inputFileName;
+        this.outputFileName = outputFileName;
+    }
 
-    public Binary(String fileName, String outputFileName) {
-        String fc = readFile(fileName);
+
+    public void makeFiles() {
+        String fc = readFile(inputFileName);
         writeFile(getMap(fc), outputFileName);
     }
 
@@ -90,6 +95,9 @@ public class Binary {
     }
 
     public static void main(String[] args) {
+        final String INPUT_FILE = "src/main/resources/MaxArray.txt";
+        final String OUTPUT_FILE = "src/main/KeyWords.txt";
         Binary binary = new Binary(INPUT_FILE, OUTPUT_FILE);
+        binary.makeFiles();
     }
 }

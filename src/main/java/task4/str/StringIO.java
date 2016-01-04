@@ -9,8 +9,6 @@ import java.util.Map;
  * Created by Elizaveta Kapitonova on 05.01.16.
  */
 public class StringIO {
-    private static final String INPUT_FILE = "src/main/resources/MaxArray.txt";
-    private static final String OUTPUT_FILE = "src/main/KeyWordsString.txt";
 
     private static final String KEYWORDS[] = { "abstract", "assert", "boolean",
             "break", "byte", "case", "catch", "char", "class", "const",
@@ -22,9 +20,17 @@ public class StringIO {
             "synchronized", "this", "throw", "throws", "transient", "true",
             "try", "void", "volatile", "while" };
 
+    private String inputFileName;
+    private String outputFileName;
 
-    public StringIO(String fileName, String outputFileName) {
-        String fc = readFile(fileName);
+    public StringIO(String outputFileName, String inputFileName) {
+        this.outputFileName = outputFileName;
+        this.inputFileName = inputFileName;
+    }
+
+
+    public void makeFiles() {
+        String fc = readFile(inputFileName);
         writeFile(getMap(fc), outputFileName);
     }
 
@@ -86,6 +92,10 @@ public class StringIO {
     }
 
     public static void main(String[] args) {
+        final String INPUT_FILE = "src/main/resources/MaxArray.txt";
+        final String OUTPUT_FILE = "src/main/KeyWordsString.txt";
+
         StringIO stringIO = new StringIO(INPUT_FILE, OUTPUT_FILE);
+        stringIO.makeFiles();
     }
 }
