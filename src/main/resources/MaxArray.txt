@@ -26,7 +26,7 @@ public class MaxArray {
     public static void main(String[] args){
         try(InputStreamReader in = new InputStreamReader(System.in);
             BufferedReader bufferRead = new BufferedReader(in)){
-            String[] a = bufferRead.readLine().split("");
+            String[] a = bufferRead.readLine().split(" ");
             System.out.println(getMax(a));
             bufferRead.close();
         }
