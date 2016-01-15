@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Elizaveta Kapitonova on 03.01.16.
+ * 2nd half is not done yet
  */
 public class FigureSearcher {
     private final static String HTML_PATH = "src/main/resources/Java.SE.03.Information handling_task_attachment.html";

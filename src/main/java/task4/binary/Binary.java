@@ -1,6 +1,5 @@
 package task4.binary;
 
-import java.awt.image.Kernel;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Iterator;
