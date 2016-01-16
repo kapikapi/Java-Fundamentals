@@ -37,6 +37,23 @@ public class PropertiesToMapReader {
         return propertyMap;
     }
 
+    // what happens if we add duplicate key to map?
+    // old value of the key will be replaced with the new one
+    public void duplicateAdd() {
+        String duplicate_key = "";
+        Map<String, String> duplMap = new HashMap<>();
+        for (String keys : property.stringPropertyNames()) {
+            duplMap.put(keys, property.getProperty(keys));
+            duplicate_key = keys;
+        }
+        System.out.println();
+        System.out.println(duplicate_key + " - duplicate key");
+        duplMap.put(duplicate_key, "some value");
+        for (String k : duplMap.keySet()) {
+            System.out.println(k + " " + duplMap.get(k));
+        }
+    }
+
     public static void main(String[] args) {
         final String PATH_ONE = "task5_properties/one.properties";
         final String PATH_THREE_WRONG = "task5_properties/thre.properties";
@@ -45,8 +62,10 @@ public class PropertiesToMapReader {
         for (String k : map.keySet()) {
             System.out.println(k + " " + map.get(k));
         }
-        PropertiesToMapReader ptmr = new PropertiesToMapReader(PATH_THREE_WRONG);
-        Map<String, String> map_wrong = propertiesToMapReader.getProperties();
+        propertiesToMapReader.duplicateAdd();
+
+//        PropertiesToMapReader ptmr = new PropertiesToMapReader(PATH_THREE_WRONG);
+//        Map<String, String> map_wrong = propertiesToMapReader.getProperties();
     }
 
 
